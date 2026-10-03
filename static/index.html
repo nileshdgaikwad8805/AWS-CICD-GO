@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CloudPulse | VidyaOps</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="brand"><span class="logo">☁</span> CloudPulse</div>
+    <div class="nav-right">
+      <span class="pill" id="envPill">production</span>
+      <span class="status"><i class="dot" id="statusDot"></i><span id="statusText">Checking…</span></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Powered by VidyaOps</p>
+      <h1>Shipped automatically with <span class="grad">AWS CodePipeline</span></h1>
+      <p class="sub">Every commit to GitHub is built and deployed to Elastic Beanstalk, with no manual steps.</p>
+      <div class="actions">
+        <button id="checkBtn" class="btn primary">Run health check</button>
+        <a class="btn ghost" href="/api/info" target="_blank" rel="noopener">View API JSON</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card"><h3>Status</h3><p class="big" id="statusBig">–</p><p class="muted" id="latency">latency: –</p></article>
+      <article class="card"><h3>Uptime</h3><p class="big" id="uptime">–</p><p class="muted" id="startedAt">since –</p></article>
+      <article class="card"><h3>Version</h3><p class="big" id="version">–</p><p class="muted" id="goVersion">–</p></article>
+      <article class="card"><h3>Server time (UTC)</h3><p class="big small" id="serverTime">–</p><p class="muted" id="hostname">host: –</p></article>
+    </section>
+
+    <section class="panel">
+      <h2>Delivery pipeline</h2>
+      <div class="flow">
+        <div class="step"><span class="ico">🐙</span><b>GitHub</b><small>Source</small></div>
+        <span class="arrow">→</span>
+        <div class="step"><span class="ico">🔄</span><b>CodePipeline</b><small>Orchestrate</small></div>
+        <span class="arrow">→</span>
+        <div class="step"><span class="ico">🛠</span><b>CodeBuild</b><small>Build check</small></div>
+        <span class="arrow">→</span>
+        <div class="step"><span class="ico">🚀</span><b>Elastic Beanstalk</b><small>Deploy</small></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Endpoints</h2>
+      <table>
+        <thead><tr><th>Path</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/">/</a></td><td>This dashboard</td></tr>
+          <tr><td><a href="/health">/health</a></td><td>Health check used by monitors</td></tr>
+          <tr><td><a href="/api/info">/api/info</a></td><td>Runtime info as JSON</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> VidyaOps · Built with Go · Auto-refreshes every 5 seconds</footer>
+  <script src="app.js"></script>
+</body>
+</html>
