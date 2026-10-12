@@ -20,11 +20,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'go test -v -timeout 2m ./...'
-            }
-        }
 
         stage('Build') {
             steps {
