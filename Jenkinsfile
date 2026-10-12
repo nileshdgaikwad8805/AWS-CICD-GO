@@ -22,7 +22,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'go test ./...'
+                sh 'go test -v -timeout 2m ./...'
             }
         }
 
